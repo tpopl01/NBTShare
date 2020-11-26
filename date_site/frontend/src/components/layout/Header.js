@@ -4,71 +4,115 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 
-export class Header extends Component {
-  static propTypes = {
-    auth: PropTypes.object.isRequired,
-    logout: PropTypes.func.isRequired,
-  };
+import Button from "@material-ui/core/Button";
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
+
+
+
+export default class Header extends Component {
+  constructor(props){
+    super(props);
+   // const { isAuthenticated, user } = this.props.auth;
+    this.state={
+      isOpen: false,
+    }
+    this.handleMenuPress = this.handleMenuPress.bind(this);
+  }
+
+ // static propTypes = {
+ //   auth: PropTypes.object.isRequired,
+  //  logout: PropTypes.func.isRequired,
+ // };
+handleMenuPress(){
+  this.setState({'isOpen':!this.state.isOpen});
+}
 
   render() {
-    const { isAuthenticated, user } = this.props.auth;
 
-    const authLinks = (
-      <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-        <span className="navbar-text mr-3">
-          <strong>{user ? `Welcome ${user.username}` : ''}</strong>
-        </span>
-        <li className="nav-item">
-          <button onClick={this.props.logout} className="nav-link btn btn-info btn-sm text-light">
-            Logout
-          </button>
-        </li>
-      </ul>
-    );
+const guestLinks = (
+  <div>
+      <Button color="inherit" to="/register" component={Link}>
+        Register
+      </Button>
+      <Button color="inherit" to="/login" component={Link}>
+        Login
+      </Button>
+  </div>
+);
 
-    const guestLinks = (
-      <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-        <li className="nav-item">
-          <Link to="/register" className="nav-link">
-            Register
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/login" className="nav-link">
-            Login
-          </Link>
-        </li>
-      </ul>
-    );
-
-    return (
-      <nav className="navbar navbar-expand-sm navbar-light bg-light">
-        <div className="container">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+const authLinks = (
+  <div>
+    <Button class="color-inherit" onClick={this.props.logout} >
+      Logout
+    </Button>
+            <IconButton
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="false"
+            to="/login"
+            component={Link}
+            color="inherit"
           >
-            <span className="navbar-toggler-icon" />
-          </button>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a className="navbar-brand" href="#">
-              Lead Manager
-            </a>
-          </div>
-          {isAuthenticated ? authLinks : guestLinks}
+          <AccountCircle />
+          </IconButton>
+  </div>
+);
+  const { isOpen } = this.state;
+    return (
+      <div class="wide">
+      <AppBar position="static">
+      <Toolbar>
+        <IconButton edge="start" color="inherit" aria-label="menu">
+          <MenuIcon onClick={this.handleMenuPress} />
+        </IconButton>
+        <Typography variant="h6" >
+          Minecraft NBT Share
+        </Typography>
+        <div class="align-right">
+        {this.props.isAuthenticated ? authLinks : guestLinks}
         </div>
-      </nav>
+      </Toolbar>
+    </AppBar>
+
+    <div>
+      <Drawer anchor='left' open={isOpen} onClose={this.handleMenuPress} >
+      <List>
+        <ListItem>
+          <ListItemIcon><InboxIcon></InboxIcon></ListItemIcon>
+          <ListItemText primary="Top Files"></ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemIcon><InboxIcon></InboxIcon></ListItemIcon>
+          <ListItemText primary="Top Files"></ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemIcon><InboxIcon></InboxIcon></ListItemIcon>
+          <ListItemText primary="Top Files"></ListItemText>
+        </ListItem>
+      </List>
+      </Drawer>
+    </div>
+    </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  auth: state.auth,
-});
+//const mapStateToProps = (state) => ({
+ // auth: state.auth,
+//});
 
-export default connect(mapStateToProps, { logout })(Header);
+//export default connect(mapStateToProps, { logout })(Header);

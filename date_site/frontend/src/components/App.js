@@ -5,7 +5,6 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 
-import Header from './layout/Header';
 import Alerts from './layout/Alerts';
 import Login from './accounts/Login';
 import Register from './accounts/Register';
@@ -15,6 +14,7 @@ import { loadUser } from '../actions/auth';
 
 import { render } from "react-dom";
 import HomePage from "./HomePage";
+import Header from "./layout/Header";
 
 // Alert Options
 const alertOptions = {
@@ -30,13 +30,16 @@ export default class App extends Component {
   render() {
     return (
       
-      <div>
+      <div class="wide">
         <Router>
+          <Fragment>
+            <Header />
             <Switch>
               <Route path="/" exact component={HomePage}></Route>
               <Route path="/login" component={Login}></Route>
               <Route path="/register" component={Register}></Route>
             </Switch>
+            </Fragment>
         </Router>
 
         

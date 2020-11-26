@@ -18,3 +18,50 @@ body {
   height: 100%;
   display: flex;
 }
+
+.container{
+  margin: 1em;
+}
+
+.primary-bg-colour{
+  background-color: #3f51b5;
+}
+
+.secondary-bg-colour{
+  background-color: #FFF;
+}
+
+.card-title{
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  color: #FFF;
+}
+
+.card-title h1{
+  padding: 1em 0em 0em 1em;
+}
+
+.card-container{
+  padding: 1em 1em 1em 1em;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-color: lightblue;
+}
+
+.card{
+  display: inline-block;
+  margin: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.wide{
+  width: 100%;
+}
+
+.align-right{
+  margin-left: auto;
+}
+
+.color-inherit{
+  background-color: inherit;
+}
