@@ -29,9 +29,16 @@ class NBTFile(models.Model):
     description = models.CharField(max_length=600, unique=False)
     download_count = models.IntegerField(null=False, default=0)
     store_location = models.CharField(max_length=8, default=generate_unique_code, unique=True)
+    video_link = models.CharField(max_length=200, null=True, unique=False)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class NBTImages(models.Model):
+    image = models.ImageField(default='default.jpg')
+    nbt_file = models.ForeignKey(NBTFile, on_delete=models.CASCADE)
+
 
 class Rating(models.Model):
     rating = models.PositiveIntegerField(null=False, default=3)
