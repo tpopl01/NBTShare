@@ -34,11 +34,11 @@ body {
 .card-title{
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  color: #FFF;
 }
 
 .card-title h1{
   padding: 1em 0em 0em 1em;
+  color: #FFF;
 }
 
 .card-container{

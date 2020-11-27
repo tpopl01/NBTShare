@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { login } from '../../actions/auth';
 
 
 import Grid from "@material-ui/core/Grid";
@@ -47,7 +45,11 @@ export default class Login extends Component {
       return <Redirect to="/" />;
     }
     const { username, password } = this.state;
-    return (
+    return (    
+    <div class = "container">
+    <div class="card-title primary-bg-colour">
+      <h1>Login</h1>
+        <div class="card-container secondary-bg-colour">
         <Grid container spacing={1}>
              <Grid item xs={12} align="center">
           <FormControl>
@@ -65,8 +67,6 @@ export default class Login extends Component {
             <FormHelperText>
               <div align="center">Username</div>
             </FormHelperText>
-          </FormControl>
-          <FormControl>
             <TextField
               required={true}
               type="text"
@@ -93,12 +93,12 @@ export default class Login extends Component {
           </Button>
         </Grid>
         <Grid item xs={12} align="center">
-          <Button color="secondary" variant="contained" to="/register" component={Link}>
-            Register
-          </Button>
+            <p>
+              Need an account? <Link to="/register">Register</Link>
+            </p>
         </Grid>
         </Grid>
- 
+ </div></div></div>
     );
   }
 }

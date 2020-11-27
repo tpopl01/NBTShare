@@ -49,7 +49,11 @@ export default class Register extends Component {
       return <Redirect to="/" />;
     }
     const { username, email, password, password2 } = this.state;
-    return (
+    return (      
+    <div class = "container">
+    <div class="card-title primary-bg-colour">
+      <h1>Register</h1>
+        <div class="card-container secondary-bg-colour">
         <Grid container spacing={1}>
             <Grid item xs={12} align="center">
           <FormControl>
@@ -126,7 +130,7 @@ export default class Register extends Component {
             </p>
         </Grid>
         </Grid>
-
+            </div></div></div>
    
     );
   }

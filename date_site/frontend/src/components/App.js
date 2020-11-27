@@ -15,6 +15,9 @@ import { loadUser } from '../actions/auth';
 import { render } from "react-dom";
 import HomePage from "./HomePage";
 import Header from "./layout/Header";
+import ProfilePage from './ProfilePage';
+import Comments from './Comments';
+import NBTPage from './NBTPage';
 
 // Alert Options
 const alertOptions = {
@@ -38,6 +41,8 @@ export default class App extends Component {
               <Route path="/" exact component={HomePage}></Route>
               <Route path="/login" component={Login}></Route>
               <Route path="/register" component={Register}></Route>
+              <Route path="/profile" exact component={ProfilePage, HomePage, Comments}></Route>
+              <Route path="/nbt" exact component={NBTPage, Comments}></Route>
             </Switch>
             </Fragment>
         </Router>
