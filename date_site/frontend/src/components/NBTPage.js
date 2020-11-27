@@ -40,16 +40,16 @@ class NBTPage extends Component {
                     title="Auto Wheat Farm"
                     />
                 </Grid>
-                    <Grid item  xs={6} align="center">
+                    <Grid item align="left">
                         <Grid container spacing={1}>
-                        <Grid item align="center" xs={12}>
+                        <Grid item align="left" xs={12}>
                             <Typography variant="body2">By Matt</Typography>
                             <Typography variant="body2" color="textSecondary">At: {created_at}</Typography>
+                        <Typography>Likes: 10</Typography>
+                        <Typography>Versions: 1.62 - 1.74</Typography>
                         </Grid>
                         </Grid>
                         <Grid item align="center">
-                        <Typography>Likes: 10</Typography>
-                        <Typography>Versions: 1.62 - 1.74</Typography>
                             <Button
                                 color="primary"
                                 variant="contained"
