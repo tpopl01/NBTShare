@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
+import { red } from '@material-ui/core/colors';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 import Grid from "@material-ui/core/Grid";
 
@@ -8,6 +11,10 @@ const useStyles = makeStyles((theme) => ({
     avatar: {
       backgroundColor: red[500],
     },
+      paper: {
+          padding: theme.spacing(2),
+        margin: theme.spacing(1),
+      },
   }));
   
 
@@ -18,23 +25,32 @@ class Comments extends Component {
     }
 
     render(){
+        const classes = this.props.classes;
         return(
             <div class = "container">
             <div class="card-title primary-bg-colour">
-              <h1>Comments</h1>
+              <h2>Comments</h2>
                 <div class="card-container secondary-bg-colour">
-                <Grid item xs={12} align="center">
-                    <Grid item xs={3} align="center">
+            <Paper className={classes.paper}>
+                <Grid container spacing={1}>
+                    <Grid item>
                     <Avatar aria-label="user" className={classes.avatar}>
                         R
                     </Avatar>
                     </Grid>
-                    <Grid item xs={9} align="center">
-                        <small>Today at 5:42PM</small>
-                        <p>Matt</p>
-                        <p>How artistic!</p>
+                    <Grid item>
+                        <Grid container spacing={1}>
+                        <Grid item >
+                            <Typography variant="body2" gutterBottom>Matt</Typography>
+                        </Grid> 
+                        <Grid item>
+                        <Typography variant="body2" color="textSecondary" gutterBottom>Today at 5:42PM</Typography>
+                        </Grid>
+                        </Grid>
+                        <Typography variant="body2" gutterBottom>How artistic!</Typography>
                     </Grid>
                 </Grid>
+                </Paper>
                 </div></div></div>
         );
     }

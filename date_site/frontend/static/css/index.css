@@ -36,9 +36,20 @@ body {
   border-top-right-radius: 15px;
 }
 
-.card-title h1{
+.title{
+  margin:1em 1em 1em 1em;
+  padding:1em 1em 1em 1em;
+  background-color: #3f51b5;
+  color: #FFF;
+}
+
+.card-title h2{
   padding: 1em 0em 0em 1em;
   color: #FFF;
+}
+
+.simple-padding{
+  padding: 1em;
 }
 
 .card-container{

@@ -19,9 +19,9 @@ export default class ProfilePage extends Component {
         return(
             <div class = "container">
             <div class="card-title primary-bg-colour">
-              <h1>{name}</h1>
+              <h2>{name}</h2>
                 <div class="card-container secondary-bg-colour">
-                <Grid item xs={12} align="center">
+                <Grid item xs={12} align="left">
                     <div>{description}</div>
                 </Grid>
                 </div></div></div>

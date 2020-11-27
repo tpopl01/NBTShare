@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from '@material-ui/core/styles';
+import Button from "@material-ui/core/Button";
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
     media: {
@@ -15,7 +17,7 @@ class NBTPage extends Component {
       super(props);
       this.state = {
         name: 'Wheat Auto Farm',
-        description: 'Tawr sedf edgv dergb rfghb. esdge edg edghha ssf.',
+        description: 'sfwe dsgf eg ew gerw gds gsedg r rhtr htr Tawr sedf edgv dergb rfghb. esdge edg edghha ssf.',
         download_count: 1,
         created_at: '16 September 2020',
         image: '',
@@ -28,7 +30,7 @@ class NBTPage extends Component {
         return(
             <div class = "container">
             <div class="card-title primary-bg-colour">
-              <h1>{name}</h1>
+              <h2>{name}</h2>
                 <div class="card-container secondary-bg-colour">
                 <Grid container spacing={1}>
                     <Grid item xs={6} align="center">
@@ -38,11 +40,27 @@ class NBTPage extends Component {
                     title="Auto Wheat Farm"
                     />
                 </Grid>
-                <Grid item xs={6} align="center">
-                  <p>Downloads: {download_count}</p>
-                    <p>{created_at}</p>
+                    <Grid item  xs={6} align="center">
+                        <Grid container spacing={1}>
+                        <Grid item align="center" xs={12}>
+                            <Typography variant="body2">By Matt</Typography>
+                            <Typography variant="body2" color="textSecondary">At: {created_at}</Typography>
+                        </Grid>
+                        </Grid>
+                        <Grid item align="center">
+                        <Typography>Likes: 10</Typography>
+                        <Typography>Versions: 1.62 - 1.74</Typography>
+                            <Button
+                                color="primary"
+                                variant="contained"
+                            >
+                                Download
+                            </Button>
+                            <Typography variant="body2" color="textSecondary">Downloads: {download_count}</Typography>
+                        </Grid>
                 </Grid>
-                <Grid item xs={12} align="center">
+                <Grid item xs={12} align="left">
+                    <h3>About</h3>
                     <div>{description}</div>
                 </Grid>
                 </Grid>

@@ -48,7 +48,7 @@ export default class Login extends Component {
     return (    
     <div class = "container">
     <div class="card-title primary-bg-colour">
-      <h1>Login</h1>
+      <h2>Login</h2>
         <div class="card-container secondary-bg-colour">
         <Grid container spacing={1}>
              <Grid item xs={12} align="center">

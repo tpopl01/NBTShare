@@ -45,7 +45,7 @@ class HomePage extends Component {
     return (
       <div class = "container">
         <div class="card-title primary-bg-colour">
-        <h1>Discover</h1>
+        <h2>Discover</h2>
         <div class="card-container secondary-bg-colour">
           <div class="card">
         <Card className={classes.root}>
